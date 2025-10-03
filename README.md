@@ -2,20 +2,23 @@
 
 This project uses a pre-trained FaceNet model to generate face embeddings and visualize them on facial images.
 
-## � Quick Setup
+## 🚀 Quick Setup
 
 ### 1. Download the Model Files
+
 The FaceNet model files are stored separately due to size limitations:
 
-**�📁 Download from Google Drive:**
+**📁 Download from Google Drive:**
 [FaceNet Model Files](https://drive.google.com/drive/folders/17-MR7fSc342OcIneN0bV6mKX_j02jska?usp=sharing)
 
 **📋 Setup Instructions:**
+
 1. Download the model files from the Google Drive link above
 2. Create a `models/` folder in your project directory
 3. Extract/place the model files in the `models/` folder
 4. Your structure should look like:
-   ```
+
+   ```text
    models/
    ├── 20180402-114759/
    │   ├── 20180402-114759.pb
@@ -26,12 +29,15 @@ The FaceNet model files are stored separately due to size limitations:
    ```
 
 ### 2. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
+```
+
 ## 📁 Project Structure
 
-```
-EZ pic/
+```text
+Face-embedding-generator/
 ├── models/                          # Pre-trained models (download separately)
 │   └── 20180402-114759/            # FaceNet model directory (from Google Drive)
 │       ├── 20180402-114759.pb      # Frozen TensorFlow model
@@ -53,6 +59,7 @@ EZ pic/
 ```
 
 ## ⚠️ Important: Model Files Required
+
 **Before running the scripts, you MUST download the model files from:**
 [Google Drive - FaceNet Models](https://drive.google.com/drive/folders/17-MR7fSc342OcIneN0bV6mKX_j02jska?usp=sharing)
 
@@ -61,32 +68,39 @@ EZ pic/
 **⚠️ Prerequisites: Make sure you've downloaded the model files from Google Drive first!**
 
 ### Quick Start (Recommended)
+
 ```bash
 python trial_script.py
 ```
+
 This provides an interactive menu to run different parts of the project.
 
 ### Manual Usage
+
 ```bash
 cd scripts
 python org_trial_script.py              # Generate embeddings only
 python embedding_visualizer.py          # Create visualizations
 ```
 
-### What the scripts do:
+### What the scripts do
+
 - **org_trial_script.py**: Loads the FaceNet model and generates 512D face embeddings
 - **embedding_visualizer.py**: Creates visual mappings of embeddings onto facial features
 - **trial_script.py**: Interactive menu runner for easy execution
-```
-This script:
-- Runs the embedding generation
-- Creates visual mappings of embeddings onto the face
-- Saves comprehensive visualizations to `../outputs/`
+
+These scripts:
+
+- Run the embedding generation
+- Create visual mappings of embeddings onto the face
+- Save comprehensive visualizations to `outputs/`
 
 ## 📊 Output Visualizations
 
 ### embedding_visualization.png
+
 A 6-panel comprehensive view showing:
+
 - **Original Image**: Your input face image
 - **Heatmap Overlay**: Which facial regions contribute most to the embedding
 - **Pure Heatmap**: Raw embedding intensity map
@@ -95,14 +109,16 @@ A 6-panel comprehensive view showing:
 - **Dimension Plot**: First 100 embedding dimensions
 
 ### embedding_analysis.png
+
 Detailed analysis charts:
+
 - **Full Vector Plot**: Complete 512D embedding visualization
 - **Value Distribution**: Histogram of embedding values
 - **Top Features**: 20 most significant embedding dimensions
 
 ## 🎯 Understanding the Results
 
-- **Heatmap Colors**: 
+- **Heatmap Colors**:
   - Red/Yellow = High embedding values (strong facial features)
   - Blue/Purple = Low embedding values (less significant areas)
 - **Feature Points**: Numbered circles show the most important embedding dimensions
@@ -127,6 +143,7 @@ Detailed analysis charts:
 ## 🎨 Customization
 
 To use your own images:
+
 1. Place new images in the `images/` folder
 2. Update `IMAGE_PATH` in `scripts/trial_script.py`
 3. Run the scripts to generate new visualizations
@@ -134,6 +151,7 @@ To use your own images:
 ## 🔬 Research Applications
 
 This visualization can help understand:
+
 - Which facial features are most important for face recognition
 - How different faces map to embedding space
 - The distribution and patterns of facial embeddings
@@ -141,4 +159,4 @@ This visualization can help understand:
 
 ---
 
-*Generated on October 3, 2025*
+Generated on October 3, 2025

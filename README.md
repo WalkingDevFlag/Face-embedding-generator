@@ -2,45 +2,81 @@
 
 This project uses a pre-trained FaceNet model to generate face embeddings and visualize them on facial images.
 
+## � Quick Setup
+
+### 1. Download the Model Files
+The FaceNet model files are stored separately due to size limitations:
+
+**�📁 Download from Google Drive:**
+[FaceNet Model Files](https://drive.google.com/drive/folders/17-MR7fSc342OcIneN0bV6mKX_j02jska?usp=sharing)
+
+**📋 Setup Instructions:**
+1. Download the model files from the Google Drive link above
+2. Create a `models/` folder in your project directory
+3. Extract/place the model files in the `models/` folder
+4. Your structure should look like:
+   ```
+   models/
+   ├── 20180402-114759/
+   │   ├── 20180402-114759.pb
+   │   ├── model-20180402-114759.ckpt-275.data-00000-of-00001
+   │   ├── model-20180402-114759.ckpt-275.index
+   │   └── model-20180402-114759.meta
+   └── 20180402-114759.zip (optional)
+   ```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
 ## 📁 Project Structure
 
 ```
 EZ pic/
-├── models/                          # Pre-trained models and model files
-│   ├── 20180402-114759/            # FaceNet model directory
-│   │   ├── 20180402-114759.pb      # Frozen TensorFlow model
-│   │   ├── model-20180402-114759.ckpt-275.data-00000-of-00001
-│   │   ├── model-20180402-114759.ckpt-275.index
-│   │   └── model-20180402-114759.meta
-│   └── 20180402-114759.zip         # Original model archive
+├── models/                          # Pre-trained models (download separately)
+│   └── 20180402-114759/            # FaceNet model directory (from Google Drive)
+│       ├── 20180402-114759.pb      # Frozen TensorFlow model
+│       ├── model-20180402-114759.ckpt-275.data-00000-of-00001
+│       ├── model-20180402-114759.ckpt-275.index
+│       └── model-20180402-114759.meta
 ├── images/                          # Input images for processing
 │   ├── sample.png                  # Main test image
 │   └── unnamed.png                 # Additional image
 ├── scripts/                         # Python scripts
-│   ├── trial_script.py             # Main embedding generation script
+│   ├── org_trial_script.py         # Main embedding generation script
 │   └── embedding_visualizer.py     # Visualization script
 ├── outputs/                         # Generated visualizations and results
 │   ├── embedding_visualization.png # Comprehensive visualization
 │   └── embedding_analysis.png      # Detailed analysis charts
-└── README.md                       # This file
+├── trial_script.py                 # Main runner script with menu
+├── README.md                       # This file
+└── requirements.txt                # Python dependencies
 ```
+
+## ⚠️ Important: Model Files Required
+**Before running the scripts, you MUST download the model files from:**
+[Google Drive - FaceNet Models](https://drive.google.com/drive/folders/17-MR7fSc342OcIneN0bV6mKX_j02jska?usp=sharing)
 
 ## 🚀 Usage
 
-### 1. Generate Face Embeddings
+**⚠️ Prerequisites: Make sure you've downloaded the model files from Google Drive first!**
+
+### Quick Start (Recommended)
 ```bash
-cd scripts
 python trial_script.py
 ```
-This script:
-- Loads the FaceNet model from `../models/20180402-114759/20180402-114759.pb`
-- Processes `../images/sample.png`
-- Generates a 512-dimensional face embedding vector
+This provides an interactive menu to run different parts of the project.
 
-### 2. Visualize Embeddings
+### Manual Usage
 ```bash
 cd scripts
-python embedding_visualizer.py
+python org_trial_script.py              # Generate embeddings only
+python embedding_visualizer.py          # Create visualizations
+```
+
+### What the scripts do:
+- **org_trial_script.py**: Loads the FaceNet model and generates 512D face embeddings
+- **embedding_visualizer.py**: Creates visual mappings of embeddings onto facial features
+- **trial_script.py**: Interactive menu runner for easy execution
 ```
 This script:
 - Runs the embedding generation

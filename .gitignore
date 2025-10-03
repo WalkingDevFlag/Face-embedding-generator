@@ -53,7 +53,8 @@ Thumbs.db
 # Logs
 *.log
 
-# TensorFlow model files (optional - uncomment if you want to exclude large model files)
-# models/*.pb
-# models/*.ckpt*
-# models/*.meta
+# TensorFlow model files (excluded due to GitHub size limits)
+models/*.pb
+models/*.ckpt*
+models/*.meta
+models/*.zip
